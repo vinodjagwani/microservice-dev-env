@@ -1,0 +1,25 @@
+server:
+  port: 8888
+
+spring:
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:///infra-services/config-repo/
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://172.17.0.2:8761/eureka/
+    registerWithEureka: true
+    fetchRegistry: true
+  instance:
+    preferIpAddress: false
+
+
+logging:
+  level:
+    org.springframework.cloud: DEBUG
